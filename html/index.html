@@ -1,0 +1,502 @@
+<doctype html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>YouTube Clone Design </title>
+  <style>
+            *{
+              margin:0;
+              padding:0;
+              box-sizing: border-box;
+              background-color: black;
+              color: white;
+            }
+            body{
+              font-family: sans-serif;
+            }
+            .material-icons{
+              color:white;
+            }
+            .header{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              height: 70px;
+              padding:15px;
+            }
+            .header-left{
+              display: flex;
+              align-items: center;
+            }
+            .header-left img{
+              width:100px;
+              margin-left:0.5rem;
+            }
+            .header i{
+              padding:0 7px;
+              cursor: pointer;
+            }
+            .header-search form{
+              border:1px solid #ddd;
+              height: 35px;
+              margin:0;
+              padding:0;
+              display: flex;
+            }
+            .header-search input{
+              width:500px;
+              padding:10px;
+              margin:0;
+              border-radius: 0;
+              border:none;
+              height:100%;
+            }
+            .header-search button{
+              padding:0;
+              margin:0;
+              height:100%;
+              border:none;
+              border-radius:0;
+            }
+            .mainBody{
+              height: calc(100vh - 70px);
+              display: flex;
+              overflow:hidden;
+            }
+            .sidebar{
+              height: 100%;
+              width: 230px;
+              background-color: black;
+              overflow-y: scroll;
+            }
+            .sidebar-categories{
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 15px;
+              margin-top: 15px;
+            }
+            .sidebar-category{
+              display: flex;
+              align-items: center;
+              padding:12px 25px;
+            }
+            .sidebar-category span{
+              margin-left: 15px;
+            }
+            .sidebar-category:hover{
+              background-color: #e5e5e5;
+              cursor: pointer;
+            }
+            .sidebar::-webkit-scrollbar{
+              display: none;
+            }
+            .videos{
+              background-color: black;
+              width: 100%;
+              height: 100%;
+              padding:15px;
+              border-top: 1px solid #ddd;
+              overflow-y: scroll;
+            }
+            .videos-container{
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              flex-wrap: wrap;
+            }
+            .video{
+              width:310px;
+              margin-left: 5px;
+              margin-right: 5px;
+              margin-bottom: 30px;
+            }
+            .video-thumbnail{
+              width: 100%;
+              height:170px;
+            }
+            .video-thumbnail img{
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+            .author img{
+              object-fit: cover;
+              border-radius: 50%;
+              height: 40px;
+              width: 40px;
+              margin-right: 10px;
+            }
+            .video-details{
+              display: flex;
+              margin-top:10px;
+            }
+            .title{
+              display: flex;
+              flex-direction: column;
+            }
+            .title h3{
+              color:white;
+              line-height: 18px;
+              font-size: 14px;
+              margin-bottom: 6px;
+            }
+            .title a, span{
+              text-decoration: none;
+              color:rgb(96,96,96);
+              font-size: 14px;
+            }
+            h1{
+              font-size: 20px;
+              margin-bottom: 10px;
+              color:white;
+            }
+  </style>
+</head>
+  <body>
+    <div class="header">
+      <div class="header-left">
+        <i id="menu" class="material-icons">menu</i>
+        <img src="https://cdn.gtricks.com/2021/04/how-to-enable-youtube-dark-mode-on-pc-and-android-ios-1280x720.jpg">
+      </div>
+      <div class="header-search">
+        <form action="">
+          <input type="text" placeholder="Search">
+          <button>
+            <i class="material-icons">search</i>
+          </button>
+        </form>
+      </div>
+      <div class="header-icons">
+        <i class="material-icons display-this">search</i>
+        <i class="material-icons">videocam</i>
+        <i class="material-icons">apps</i>
+        <i class="material-icons">notifications</i>
+        <i class="material-icons display-this">account_circle</i>
+      </div>
+    </div>
+    <div class="mainBody">
+      <div class="sidebar">
+        <div class="sidebar-categories">
+          <div class="sidebar-category">
+            <i class="material-icons">home</i>
+            <span>Home</span>
+          </div>
+          <div class="sidebar-category">
+            <i class="material-icons">local_fire_department</i>
+            <span>Trending</span>
+          </div>
+          <div class="sidebar-category">
+            <i class="material-icons">subscriptions</i>
+            <span>Subscriptions</span>
+          </div>
+        </div>
+        <hr />
+        <div class="sidebar-categories">
+          <div class="sidebar-category">
+            <i class="material-icons">library_add_check</i>
+            <span>Library</span>
+          </div>
+          <div class="sidebar-category">
+            <i class="material-icons">history</i>
+            <span>History</span>
+          </div>
+          <div class="sidebar-category">
+            <i class="material-icons">play_arrow</i>
+            <span>Your Videos</span>
+          </div>
+          <div class="sidebar-category">
+            <i class="material-icons">watch_later</i>
+            <span>Watch Later</span>
+          </div>
+          <div class="sidebar-category">
+            <i class="material-icons">thumb_up</i>
+            <span>Liked Videos</span>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="videos">
+        <h1>History</h1>
+        <div class="videos-container">
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://i3.ytimg.com/vi/Hl3A_yknI-c/hqdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/7004qyZ1Z-euDnQuzxohKRZ61K3ERivjIp65hggE8S39nz6zN-g3s6OovzX9df0leRQcjWD7=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3> Real Time HTML CSS and JavaScript Editor with Preview</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>10K Views . 3 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://i3.ytimg.com/vi/uCEaLxx9Jm8/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLSzPyBqUmPVvaPcHNFw1dhqWotx9TFWt6fpQwra=s176-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>IPhone UI Design using HTML and CSS</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>102K Views . 5 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/24lVbqEvyMs/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                 <img src="https://yt3.ggpht.com/ytc/AKedOLRymx5yydGCvP7JspNbZOq5suFiopgnfxxvjGkL1w=s88-c-k-c0x00ffffff-no-rj"></a>
+                </div>
+                <div class="title">
+                  <h3>Access Camera and Read QR code using JavaScript</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>1K Views . 1 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLQ3mf8OZMd_XI_xhBJPyKE02M2E8OQqxyreAFYK4g=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>211K Views . 1 year Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLSLzBlLalLFEXgvGHr6f9yBm9Y8PrJMXZC_hxTTlQ=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>103K Views . 8 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLT3EnMXtIOvDT4CL7obl0-acSZCBhMuapXBQFksVQ=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>780K Views . 9 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLQ7x5XddULtD7xMBPbZU9RzeleFY3gHiI3cbiAayg=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>800K Views . 3 years Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLTz3LrV7dK_8f7eG3doQ9pCntXZD2S8Wf6af409F-k=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>1m Views . 1 years Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLRkgnCMxQUGbOJ-fcAj0Dc9O1B-u-T_OjguAlUhWw=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>865K Views . 6 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLT-_6j4d-uGYx0rJxKLjyW7ZsomUSWVUtXUVOMT=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>758K Views . 11 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLQn3cabTHFXBVODrqdXpTVkKav5B5LwyabIQTJw=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>30K Views . 2 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLSMzbcHHPtmBxQq9cVFM7xyhBLANx8C7zSgW8l08w=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>106K Views . 28 Days Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/L-O4HPapFJlG3Z5VMx-e5r-VK8p47g_cJ5_LlaZeZ6--rgSkVVbSI4BQ_11WcCGNWiVxI0xgXg=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>689K Views . 8 Months Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLRNvu-mzwHWR5D7KaXTpJx7XJPbTVpssrUWYL306w=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>70K Views . 5 Months Ago</span>
+                </div>
+              </div>
+            </div>
+             <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLRNvu-mzwHWR5D7KaXTpJx7XJPbTVpssrUWYL306w=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>1.6M Views . 1 Year Ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="video">
+              <div class="video-thumbnail">
+                <img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg">
+              </div>
+              <div class="video-details">
+                <div class="author">
+                  <img src="https://yt3.ggpht.com/ytc/AKedOLRcoHyqaspHtSXjLtcMynB2mwXwjOW4R_RKkza7ig=s88-c-k-c0x00ffffff-no-rj">
+                </div>
+                <div class="title">
+                  <h3>Top 5 Programming Languages to Learn in 2021</h3>
+                  <a href="">
+                    Lets Try This
+                  </a>
+                  <span>5K Views . 3 Days Ago</span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
